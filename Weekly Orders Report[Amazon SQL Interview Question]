@@ -1,0 +1,7 @@
+--Weekly Orders Report[Amazon SQL Interview Question]
+
+SELECT week, SUM(quantity) AS total_quantity
+FROM orders_analysis
+WHERE EXTRACT(MONTH FROM week) BETWEEN 1 AND 3
+AND EXTRACT(YEAR FROM week) = 2023
+GROUP BY week
