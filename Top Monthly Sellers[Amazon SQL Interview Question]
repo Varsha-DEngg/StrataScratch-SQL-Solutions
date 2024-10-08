@@ -1,0 +1,11 @@
+--Top Monthly Sellers[Amazon SQL Interview Question]
+
+WITH rankedtable AS(
+SELECT *, DENSE_RANK() OVER(PARTITION BY product_category ORDER BY total_sales DESC) AS ranked
+FROM sales_data
+WHERE month ='2024-01'
+)
+
+SELECT seller_id, total_sales ,product_category, market_place,month 
+FROM rankedtable
+WHERE ranked BETWEEN 1 AND 3 
