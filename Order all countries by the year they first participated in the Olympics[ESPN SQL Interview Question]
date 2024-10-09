@@ -1,0 +1,6 @@
+--Order all countries by the year they first participated in the Olympics[ESPN SQL Interview Question]
+
+SELECT noc, MIN(year) AS first_time_year
+FROM olympics_athletes_events
+GROUP BY noc
+ORDER BY first_time_year,noc
