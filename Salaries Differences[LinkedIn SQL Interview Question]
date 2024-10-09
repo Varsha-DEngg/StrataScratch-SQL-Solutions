@@ -1,0 +1,13 @@
+--Salaries Differences[LinkedIn SQL Interview Question]
+
+WITH temptable AS (SELECT e.department_id, MAX(e.salary)
+FROM db_employee AS e
+INNER JOIN db_dept AS d
+ON e.department_id = d.id AND d.department IN('engineering','marketing')
+GROUP BY e.department_id)
+
+SELECT ABS(d1.max - d2.max) as salary_difference
+FROM temptable AS d1
+CROSS JOIN temptable AS d2
+WHERE d1.department_id = 1 AND 
+d2.department_id = 4
