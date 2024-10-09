@@ -1,0 +1,7 @@
+--Movie Duration Match[Amazon SQL Interview Question]
+
+SELECT f.flight_id, e.movie_id, e.duration
+FROM entertainment_catalog AS e
+JOIN flight_schedule AS f
+ON e.duration<=f.flight_duration
+WHERE f.flight_id = 101
